@@ -1,10 +1,15 @@
+'use client'
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 const Footer = () => {
+    const pathname = usePathname();
+    console.log(pathname)
+    if (pathname === '/login') return null
     return (
         // footer container
-        <footer className="w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw]
-        bg-secondary p-10">  
+        <footer className="w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] mt-0
+        bg-secondary p-10">
             <div className='footer sm:footer-horizontal max-w-screen-2xl mx-auto'>
                 <nav>
                     <h6 className="footer-title">Services</h6>

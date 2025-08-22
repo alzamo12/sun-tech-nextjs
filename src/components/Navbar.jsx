@@ -13,7 +13,7 @@ const Navbar = async () => {
         <li><Link href="/products">Products</Link></li>
         {
             session?.user &&
-            <li><Link href="/dashboard/add-product">Add Product</Link></li>
+            <li><Link href="/dashboard/addProduct">Add Product</Link></li>
         }
     </>
     return (

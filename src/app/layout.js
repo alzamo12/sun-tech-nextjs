@@ -1,10 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { SessionProvider } from "next-auth/react";
-// import NextAuthSessionProviders from "@/Providers/NextAuthSessionProviders";
 import NextAuthSessionProviders from "@/Providers/NextAuthSessionProviders";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,22 +21,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="bg-primary overflow-x-hidden" >
+    <html lang="en" className="bg-primary overflow-x-hidden">
       <NextAuthSessionProviders>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased mx-auto
         max-w-[350px] md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-screen-2xl
         `} //set up width
         >
-          <header>
-            <nav className="fixed top-0 inset-x-0 z-50 shadow-xl bg-secondary">
-              <Navbar />
-            </nav>
+          {/* <Header /> */}
+          <header className="fixed inset-x-0 top-0 z-50 bg-secondary">
+            <Navbar />
           </header>
           <main className="">
             {children}
           </main>
-          <Footer />
+            <Footer />
+          
         </body>
       </NextAuthSessionProviders>
     </html>
