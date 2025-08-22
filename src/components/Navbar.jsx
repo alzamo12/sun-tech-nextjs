@@ -11,7 +11,10 @@ const Navbar = async () => {
     const navLinks = <>
         <li><Link href="/">Home</Link></li>
         <li><Link href="/products">Products</Link></li>
-        <li><Link href="/dashboard/add-product">Add Product</Link></li>
+        {
+            session?.user &&
+            <li><Link href="/dashboard/add-product">Add Product</Link></li>
+        }
     </>
     return (
         <div className="navbar max-w-[350px] md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-screen-2xl mx-auto">
