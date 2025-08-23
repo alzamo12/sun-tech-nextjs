@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
@@ -10,23 +11,15 @@ const Footer = () => {
         // footer container
         <footer className="w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] mt-0
         bg-secondary p-10">
-            <div className='footer sm:footer-horizontal max-w-screen-2xl mx-auto'>
-                <nav>
-                    <h6 className="footer-title">Services</h6>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+            <footer className="footer footer-horizontal footer-center text-base-content rounded p-10
+                    max-w-[350px] md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-screen-2xl
+            ">
+                <nav className="grid grid-flow-col gap-4">
+                    <Link href="/" className='link link-hover'>Home</Link>
+                    <Link href="/products" className='link link-hover'>Products</Link>
+                    
                 </nav>
                 <nav>
-                    <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
-                </nav>
-                <nav>
-                    <h6 className="footer-title">Social</h6>
                     <div className="grid grid-flow-col gap-4">
                         <a>
                             <svg
@@ -63,7 +56,10 @@ const Footer = () => {
                         </a>
                     </div>
                 </nav>
-            </div>
+                <aside>
+                    <p>Copyright © {new Date().getFullYear()} - All right reserved by Sun Tech</p>
+                </aside>
+            </footer>
         </footer>
     );
 };

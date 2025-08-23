@@ -10,7 +10,8 @@ export default function ProductsPage() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/products")
+    fetch("https://next-project-inky-eight.vercel.app/api/products")
+    // fetch("http://localhost:3000/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

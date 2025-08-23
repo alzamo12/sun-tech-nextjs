@@ -16,7 +16,7 @@ export default function Login() {
       redirect: false,
       email,
       password,
-      callbackUrl: "/products", // redirect after login
+      callbackUrl: "/products",
     });
 
     if (res.error) setError(res.error);

@@ -1,8 +1,6 @@
 "use client";
 
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 export default function AddProductForm() {
     const [product, setProduct] = useState({
@@ -14,16 +12,6 @@ export default function AddProductForm() {
         image: "",
         description: "",
     });
-
-    // const { data: session, status } = useSession();
-    // const router = useRouter();
-
-    // useEffect(() => {
-    //     if (status === "unauthenticated") {
-    //         router.push("/login");
-    //     }
-    // }, [status, router]);
-
 
     const [message, setMessage] = useState("");
 
@@ -37,7 +25,7 @@ export default function AddProductForm() {
         setMessage("");
 
         try {
-            const res = await fetch("/api/product", {
+            const res = await fetch("/api/products", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -72,7 +60,7 @@ export default function AddProductForm() {
                 Add Product
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 w-full">
                 {["name", "category", "price", "brand", "stock", "image", "description"].map((field) => (
                     <input
                         key={field}

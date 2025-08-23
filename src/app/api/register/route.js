@@ -4,7 +4,6 @@ import bcrypt from "bcryptjs";
 export async function POST(req) {
   try {
     const { name, email, image, password } = await req.json();
-    // console.log(name)
 
     if (!name || !email || !password) {
       return new Response(JSON.stringify({ error: "Missing required fields" }), {
@@ -13,7 +12,7 @@ export async function POST(req) {
     }
 
     const client = await clientPromise;
-    const db = client.db("sunTech"); // replace "mydb" with your DB name
+    const db = client.db("sunTech"); 
     const usersCollection = db.collection("users");
 
     // check if user exists
@@ -25,7 +24,6 @@ export async function POST(req) {
       );
     }
 
-    // hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // insert new user
